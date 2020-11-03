@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main page</title>
+</head>
+
+<body>
+    <div id="container">
+        <h1>All the posts</h1>
+        <ul>
+            <%all_post.forEach(function(post){%>
+               <div class="postcontainer"><a href ='http://localhost:5000/user/post/<%=post._id%>' ><%=post.title%></a>
+                <div><%=post.date.toLocaleString()%></div>
+                <div><%=post.desc%></div>
+                <button id="readmore" data=post._id>read more</button>
+            
+               </div>
+
+            <%})%>
+        </ul>
+    </div>
+    <script>
+        document.getElementById('readmore').addEventListener('click',()=>{
+           
+            document.location.href=`http://localhost:5000/user/post/${post._id}`
+        })
+    </script>
+
+</body>
+
+</html>

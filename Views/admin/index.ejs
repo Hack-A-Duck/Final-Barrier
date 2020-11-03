@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main page</title>
+</head>
+
+<body>
+    <div id="container">
+        <h1>All the posts</h1>
+        <button id="addbtn">Add Post</button>
+        <ul>
+            <%all_post.forEach(function(post){%>
+               <div class="postcontainer"><a href ='http://localhost:5000/admin/post/<%=post._id%>' ><%=post.title%></a>
+                <div><%=post.date.toLocaleString()%></div>
+                <div><%=post.desc%></div>
+            
+               </div>
+
+            <%})%>
+        </ul>
+    </div>
+    <script>
+        document.getElementById('addbtn').addEventListener('click',()=>{
+            document.location.href='http://localhost:5000/admin/post/add_post'
+        })
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Individual post</title>
+</head>
+
+<body>
+    <div id="container">
+        <h1><%=grabbyid.title%></h1>
+        <div><%=grabbyid.date.toLocaleString()%></div>
+        <div><%=grabbyid.desc%></div><br>
+
+
+        <div id="commentform">
+            <form action="/user/post/add_comment" method="post">
+                <input type="text" name="username" id="username">username <br>
+                <input type="hidden" name="getid" value="<%=grabbyid._id%>"><br>
+
+                <!-- setting time by defalt(ternary op???) -->
+
+                <textarea name="write_comment" id="write_comment" cols="30" rows="10"
+                    placeholder="Write your Comment here"></textarea><br>
+                <input type="submit" value="submit">
+            </form>
+        </div>
+
+        
+        <%- include('_display_all_comment') %>
+
+
+    </div>
+    
+
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Individual post</title>
+</head>
+
+<body>
+    <div id="container">
+        <h1><%=grabbyid.title%></h1>
+        <div><%=grabbyid.date.toLocaleString()%></div>
+        <div><%=grabbyid.desc%></div>
+        <button id="btnedit" data=<%=grabbyid._id%>>Edit</button>
+        <button id="delbtn" data=<%=grabbyid._id%>>Delete</button>
+    </div>
+    <script>        //direct script use kar ya phir link kar de (gen-script se)
+        // alert("test")
+        document.getElementById('btnedit').addEventListener('click', (e) => {
+            // console.log(e.target)
+            document.location.href = `http://localhost:5000/admin/post/edit/${e.target.getAttribute('data')}`
+        })
+
+    </script>
+
+</body>
+
+</html>
