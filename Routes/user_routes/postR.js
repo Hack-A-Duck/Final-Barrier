@@ -29,12 +29,13 @@ router.post('/add_comment', async(req, res) => {
          console.log(req.body.getid)
          console.log(req.body.username)
         console.log(req.body.write_comment)
+        console.log(req.body.timeofcomment)
         
         // const updatedpost=await postmodel.updateOne({_id:(req.params.getid)},{$push:{comment:{username:"gaurav123",write_comment:"main hoon gaurav123"}}})
 
         // const updatedpost=await postmodel.update({"_id":ObjectId(req.body.getid)},{$push:{"comment":{username:(req.body.username),commentwritten:(req.body.write_comment)}}})
         
-        const updatedpost=await addcommentin.comment.push({username:(req.body.username),cmnt:(req.body.write_comment)})
+        const updatedpost=await addcommentin.comment.push({username:(req.body.username),cmnt:(req.body.write_comment),time:(req.body.timeofcomment)})
          let z=await addcommentin.save()
 
         res.redirect('/user/post/')

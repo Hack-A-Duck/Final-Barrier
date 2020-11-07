@@ -1,20 +1,20 @@
 const express = require('express')
 const router = express.Router()
+const { ensureAuthenticate }=require('../../config/auth')
 
 const postmodel = require('../../Models/postM')
 
 
-router.get('/', async(req, res) => {
+router.get('/', ensureAuthenticate,async(req, res) => {
     const all_post = await postmodel.find().sort({date:'desc'})
     // console.log(all_post)
     res.render('admin/index', { all_post: all_post })
 })
 
 //ADD POST:-
-router.get('/add_post', (req, res) => {
+router.get('/add_post',ensureAuthenticate, (req, res) => {
     // const Postmodel=new postmodel()
     res.render('admin/add_post')
-
 })
 
 router.post('/add_post', async (req, res) => {
@@ -45,16 +45,26 @@ router.post('/add_post', async (req, res) => {
 // })
 
 //FIND POST BY ID:-
-router.get('/:id',async(req,res)=>{
-    const grabbyid= await postmodel.findById(req.params.id)
-    console.log(grabbyid)
-    res.render('admin/selectedpost',{grabbyid:grabbyid})
+router.get('/:id',ensureAuthenticate,async(req,res)=>{
+        
+        const grabbyid= await postmodel.findById(req.params.id)
+        console.log(grabbyid)
+        res.render('admin/selectedpost',{grabbyid:grabbyid})
+    
+})
+
+//DELETE POST
+router.delete('/delete/:id',async(req,res)=>{
+    const todel=await postmodel.findByIdAndDelete(req.params.id)
+    res.redirect('/admin/post')
 })
 
 //EDITING POST
-router.get('/edit/:id',async(req,res)=>{
+router.get('/edit/:id',ensureAuthenticate,async(req,res)=>{
+          
     const grabbyidforedit=await postmodel.findById(req.params.id)
     res.render('admin/editpost',{grabbyidforedit:grabbyidforedit})
+
 })
 
 router.post('/edit/:id',async(req,res)=>{

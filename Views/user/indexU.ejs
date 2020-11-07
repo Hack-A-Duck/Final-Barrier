@@ -12,10 +12,11 @@
         <h1>All the posts</h1>
         <ul>
             <%all_post.forEach(function(post){%>
-               <div class="postcontainer"><a href ='http://localhost:5000/user/post/<%=post._id%>' ><%=post.title%></a>
+               <div class="postcontainer">
+                <h3><%=post.title%></h3>
                 <div><%=post.date.toLocaleString()%></div>
                 <div><%=post.desc%></div>
-                <button id="readmore" data=post._id>read more</button>
+                <button id="readmore" data=<%=post._id%>>read more</button>
             
                </div>
 
@@ -23,9 +24,9 @@
         </ul>
     </div>
     <script>
-        document.getElementById('readmore').addEventListener('click',()=>{
-           
-            document.location.href=`http://localhost:5000/user/post/${post._id}`
+        document.getElementById('readmore').addEventListener('click',(e)=>{
+           console.log(e.target.getAttribute('data'))
+            document.location.href=`http://localhost:5000/user/post/${e.target.getAttribute('data')}`
         })
     </script>
 

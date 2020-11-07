@@ -4,10 +4,11 @@ var Schema=mongoose.Schema
 
 /*Zaroorat hi nahi pada*/
 
-// const commentSchema=new Schema({
-//     username:String,
-//     cmnt:String
-// })
+const commentSchema=new Schema({
+    username:String,
+    cmnt:String,
+    time:Date
+})
 
 
 
@@ -26,10 +27,11 @@ const postschema =new Schema({
         required: true
     }
     ,
-    comment: []
+    comment: [commentSchema]
 
 
 })
+
 
 const Postmodel=module.exports = mongoose.model('postmodel', postschema)
 // const Commentmodel=module.exports=mongoose.model ('commentmodel',commentSchema)

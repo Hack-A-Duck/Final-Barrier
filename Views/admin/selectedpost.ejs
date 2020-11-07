@@ -13,7 +13,10 @@
         <div><%=grabbyid.date.toLocaleString()%></div>
         <div><%=grabbyid.desc%></div>
         <button id="btnedit" data=<%=grabbyid._id%>>Edit</button>
-        <button id="delbtn" data=<%=grabbyid._id%>>Delete</button>
+        <form action='/admin/post/delete/<%=grabbyid._id%>?_method=DELETE' method="post">
+            <input type="submit" value="DELETE">
+        </form>
+
     </div>
     <script>        //direct script use kar ya phir link kar de (gen-script se)
         // alert("test")
