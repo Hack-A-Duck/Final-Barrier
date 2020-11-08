@@ -11,11 +11,14 @@
     <div id="container">
         <h1>All the posts</h1>
         <ul>
+            <% if(all_post.length<1){ %>
+                <p>Sorry,There aren't any Posts to Display.</p>
+                <%}%>
             <%all_post.forEach(function(post){%>
                <div class="postcontainer">
                 <h3><%=post.title%></h3>
                 <div><%=post.date.toLocaleString()%></div>
-                <div><%=post.desc%></div>
+                <div><%=post.snippet%></div>
                 <button id="readmore" data=<%=post._id%>>read more</button>
             
                </div>

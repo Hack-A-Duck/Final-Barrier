@@ -1,23 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EDIT POST</title>
+    <!-- TINY MCE EDITOR -->
+    <script type="text/javascript" src='https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js'
+        referrerpolicy="origin">
+        </script>
+    <script type="text/javascript">
+        tinymce.init({
+            selector: '#desc',
+            plugins: [
+                'advlist autolink link image lists charmap print preview hr anchor pagebreak',
+                'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
+                'table emoticons template paste help'
+            ],
+            toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | ' +
+                'bullist numlist outdent indent | link image | print preview media fullpage | ' +
+                'forecolor backcolor emoticons | help',
+            menu: {
+                favs: { title: 'My Favorites', items: 'code visualaid | searchreplace | emoticons' }
+            },
+            menubar: 'favs file edit view insert format tools table help',
+            content_css: 'css/content.css'
+        });
+    </script>
 </head>
+
 <body>
     <div id="container">
         <h1>Edit Post</h1>
-        
+
         <form action="/admin/post/edit/<%=grabbyidforedit._id%>" method="post">
             <input type="text" name="title" id="title" value="<%=grabbyidforedit.title%>">Title <br>
-            <textarea name="desc" id="desc" cols="30" rows="10" placeholder="Write your blogpost here"><%= grabbyidforedit.desc %></textarea><br>
+            <textarea name="desc" id="desc" cols="30" rows="10"
+                placeholder="Write your blogpost here"><%- grabbyidforedit.desc %></textarea><br>
             <!-- <input type="datetime-local" name="date" id="date" >Date&Time<br> -->
             <input type="submit" value="submit">
-            
-        
+
+
         </form>
     </div>
-    
+
 </body>
+
 </html>

@@ -15,10 +15,13 @@
         <h1>All the posts</h1>
         <button id="addbtn">Add Post</button>
         <ul>
+            <% if(all_post.length<1){ %>
+                <p>No Posts Yet. Add New Post</p>
+                <%}%>
             <%all_post.forEach(function(post){%>
                <div class="postcontainer"><a href ='http://localhost:5000/admin/post/<%=post._id%>' ><%=post.title%></a>
                 <div><%=post.date.toLocaleString()%></div>
-                <div><%=post.desc%></div>
+                <div><%=post.snippet%></div>
             
                </div>
 

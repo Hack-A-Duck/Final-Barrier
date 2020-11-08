@@ -11,7 +11,7 @@
     <div id="container">
         <h1><%=grabbyid.title%></h1>
         <div><%=grabbyid.date.toLocaleString()%></div>
-        <div><%=grabbyid.desc%></div>
+        <div><%-grabbyid.desc%></div>
         <button id="btnedit" data=<%=grabbyid._id%>>Edit</button>
         <form action='/admin/post/delete/<%=grabbyid._id%>?_method=DELETE' method="post">
             <input type="submit" value="DELETE">
