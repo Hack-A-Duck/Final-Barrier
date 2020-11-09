@@ -21,9 +21,10 @@
             <%all_post.forEach(function(post){%>
             <div class="postcontainer">
                 <div><img src="/uploads/<%= post.img %>" alt="loading..." style="height: 100px;width: 100px;"></div>
-                <a href='http://localhost:5000/admin/post/<%=post._id%>'><%=post.title%></a>
+                <div><%=post.title%></div>
                 <div><%=post.date.toLocaleString()%></div>
                 <div><%=post.snippet%></div>
+                <a href='http://localhost:5000/admin/post/<%=post._id%>'>Read More</a>
 
             </div>
 

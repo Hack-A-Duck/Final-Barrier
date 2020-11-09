@@ -27,7 +27,8 @@
                 <h3><%=post.title%></h3>
                 <div><%=post.date.toLocaleString()%></div>
                 <div><%=post.snippet%></div>
-                <button id="readmore" data=<%=post._id%>>read more</button>
+                <a href='http://localhost:5000/admin/post/<%=post._id%>'>Read More</a>
+                
             
                </div>
 
@@ -36,12 +37,6 @@
     </div>
 
     <%- include('../partials/footer')-%>
-    <script>
-        document.getElementById('readmore').addEventListener('click',(e)=>{
-        //    console.log(e.target.getAttribute('data'))
-            document.location.href=`http://localhost:5000/user/post/${e.target.getAttribute('data')}`
-        })
-    </script>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
