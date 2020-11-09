@@ -57,6 +57,14 @@ body {
     background: var(--primary-bg);
 }
 
+.card-title {
+    color: var(--purple)
+}
+
+.card-role {
+    color: var(--blue);
+}
+
 #logincontainer{
     background: white;
     border-radius: 1rem;
