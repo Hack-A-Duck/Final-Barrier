@@ -24,11 +24,26 @@ initializePassport(passport,
     })
 
 //mongoose connection
-mongoose.connect('mongodb://localhost:27017/duck', { useNewUrlParser: true , useUnifiedTopology: true })
-var db = mongoose.connection;
-db.once('open', () => {
-    console.log('DB connected...')
-})
+
+// mongoose.connect('mongodb://localhost:27017/duck', { useNewUrlParser: true , useUnifiedTopology: true })
+// var db = mongoose.connection;
+// db.once('open', () => {
+//     console.log('DB connected...')
+// })
+
+const mongoAtlasUri="mongodb+srv://shubham12:1234@cluster0.lurz9.mongodb.net/<dbname>?retryWrites=true&w=majority"
+
+try {
+    // Connect to the MongoDB cluster
+     mongoose.connect(
+      mongoAtlasUri,
+      { useNewUrlParser: true, useUnifiedTopology: true },
+      () => console.log(" Mongoose is connected")
+    );
+
+  } catch (e) {
+    console.log("could not connect");
+  }
 
 const app = express();
 
