@@ -1,8 +1,33 @@
 const express = require('express')
 const router = express.Router()
 const { ensureAuthenticate }=require('../../config/auth')
+const multer=require('multer')
 
 const postmodel = require('../../Models/postM')
+const { request } = require('express')
+
+//storege for multer
+const storage=multer.diskStorage({
+
+    // destination for file save 
+    destination:(request,file,callback)=>{
+        callback(null,'./static/uploads')
+    },
+
+    // add back the extension
+    filename:(request,file,callback)=>{
+        callback(null,Date.now()+file.originalname)
+
+    }
+})
+
+//upload parameter for multer
+const upload=multer({
+    storage:storage,
+    limits:{
+        fileSize:1024*1024*3,
+    }
+})
 
 
 router.get('/', ensureAuthenticate,async(req, res) => {
@@ -17,11 +42,12 @@ router.get('/add_post',ensureAuthenticate, (req, res) => {
     res.render('admin/add_post')
 })
 
-router.post('/add_post', async (req, res) => {
+router.post('/add_post',upload.single('image') ,async (req, res) => {
     const newpost = await new postmodel({
         
         title : req.body.title,
         desc : req.body.desc,
+        img : req.file.filename
         // date : req.body.date
     })
     console.log(newpost)

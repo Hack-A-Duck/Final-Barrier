@@ -16,21 +16,23 @@
         <button id="addbtn">Add Post</button>
         <ul>
             <% if(all_post.length<1){ %>
-                <p>No Posts Yet. Add New Post</p>
-                <%}%>
+            <p>No Posts Yet. Add New Post</p>
+            <%}%>
             <%all_post.forEach(function(post){%>
-               <div class="postcontainer"><a href ='http://localhost:5000/admin/post/<%=post._id%>' ><%=post.title%></a>
+            <div class="postcontainer">
+                <div><img src="/uploads/<%= post.img %>" alt="loading..." style="height: 100px;width: 100px;"></div>
+                <a href='http://localhost:5000/admin/post/<%=post._id%>'><%=post.title%></a>
                 <div><%=post.date.toLocaleString()%></div>
                 <div><%=post.snippet%></div>
-            
-               </div>
+
+            </div>
 
             <%})%>
         </ul>
     </div>
     <script>
-        document.getElementById('addbtn').addEventListener('click',()=>{
-            document.location.href='http://localhost:5000/admin/post/add_post'
+        document.getElementById('addbtn').addEventListener('click', () => {
+            document.location.href = 'http://localhost:5000/admin/post/add_post'
         })
     </script>
 

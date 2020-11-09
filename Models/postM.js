@@ -33,6 +33,10 @@ const postschema =new Schema({
         type: Date,
         default: Date.now,
         required: true
+    },
+    img:{
+        type:String,
+        default:"default.jpg"
     }
     ,
     comment: [commentSchema]
@@ -40,7 +44,7 @@ const postschema =new Schema({
 
 })
 
-postschema.pre('validate',function(next){
+postschema.pre('validate',(next)=>{
     if(this.desc){
         this.desc=htmlPurify.sanitize(this.desc)
         this.snippet=stripHtml(this.desc.substring(0,150)).result

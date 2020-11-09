@@ -2,48 +2,56 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ADD POST</title>
-    <!-- TINY MCE EDITOR -->
-    <script
-    type="text/javascript"
-    src='https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js'
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ADD POST</title>
+  <!-- TINY MCE EDITOR -->
+  <script type="text/javascript" src='https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js'
     referrerpolicy="origin">
-  </script>
+    </script>
   <script type="text/javascript">
-  tinymce.init({
-    selector: '#desc',
-    plugins: [
-      'advlist autolink link image lists charmap print preview hr anchor pagebreak',
-      'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
-      'table emoticons template paste help'
-    ],
-    toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | ' +
-      'bullist numlist outdent indent | link image | print preview media fullpage | ' +
-      'forecolor backcolor emoticons | help',
-    menu: {
-      favs: {title: 'My Favorites', items: 'code visualaid | searchreplace | emoticons'}
-    },
-    menubar: 'favs file edit view insert format tools table help',
-    content_css: 'css/content.css'
-  });
+    tinymce.init({
+      selector: '#desc',
+      plugins: [
+        'advlist autolink link image lists charmap print preview hr anchor pagebreak',
+        'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
+        'table emoticons template paste help'
+      ],
+      toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | ' +
+        'bullist numlist outdent indent | link image | print preview media fullpage | ' +
+        'forecolor backcolor emoticons | help',
+      menu: {
+        favs: { title: 'My Favorites', items: 'code visualaid | searchreplace | emoticons' }
+      },
+      menubar: 'favs file edit view insert format tools table help',
+      content_css: 'css/content.css'
+    });
   </script>
 
 </head>
 
 <body>
-    <div id="container">
-        <h1>Add Post</h1>
-        <form action="/admin/post/add_post" method="post">
-            <input type="text" name="title" id="title">Title <br>
-             <!-- setting time by defalt(ternary op???) -->
-            
-            <textarea name="desc" id="desc" cols="30" rows="10" placeholder="Write your blogpost here"></textarea><br>
-            <input type="submit" value="submit">
-        
-        </form>
-    </div>
+  <div id="container">
+    <h1>Add Post</h1>
+    <form action="/admin/post/add_post" method="post" enctype="multipart/form-data">
+      <div>
+        <label for="title">Title:</label>
+        <input type="text" name="title" id="title" required>Title
+      </div>
+      <!-- setting time by defalt(ternary op???) -->
+      <div>
+        <textarea name="desc" id="desc" cols="30" rows="10" placeholder="Write your blogpost here"></textarea>
+      </div>
+      <!-- Image upload for thumbnail -->
+      <div>
+        <label for="image">Upload image</label>
+        <input type="file" name="image" id="image" required>
+      </div>
+
+      <input type="submit" value="submit">
+
+    </form>
+  </div>
 
 </body>
 

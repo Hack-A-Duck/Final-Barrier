@@ -23,6 +23,7 @@
                 <%}%>
             <%all_post.forEach(function(post){%>
                <div class="postcontainer">
+                <div><img src="/uploads/<%= post.img %>" alt="loading..." style="height: 100px;width: 100px;"></div>
                 <h3><%=post.title%></h3>
                 <div><%=post.date.toLocaleString()%></div>
                 <div><%=post.snippet%></div>
