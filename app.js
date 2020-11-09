@@ -76,6 +76,16 @@ app.use(methodoverride('_method'))
 app.set('Views', path.join(__dirname, 'Views'))
 app.set('view engine', 'ejs')
 
+//home page
+app.get('/', function (req, res) {
+    res.render('home')
+});
+
+//aboutus page
+app.get('/about', function (req, res) {
+    res.render('about')
+});
+
 //admin register
 app.get('/register',isNotAuthenticated, (req, res) => {
     res.render('register')
