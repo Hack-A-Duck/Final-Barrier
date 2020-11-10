@@ -12,6 +12,7 @@
     --purple: #4a154B;
     --blue: #1264A3;
     --text: #222222;
+    --green: #009788;
 }
 
 body {
@@ -83,6 +84,19 @@ body {
 
 .post-body {
     height: 100%;
+}
+
+.article-header {
+    font-size: 120%;
+}
+.article-desc {
+    font-size: 110%;
+    text-align: justify;
+    background: white;
+}
+
+.article-desc img{
+    margin: 10px auto;
 }
 
 footer {

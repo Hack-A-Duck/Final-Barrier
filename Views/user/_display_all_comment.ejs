@@ -1,13 +1,17 @@
 <!-- check -->
-<h2>Comment Section</h2>
 <ul>
     <% if(grabbyid.comment.length<1){ %>
     <p>Be the first one to comment.</p>
     <%}%>
     <%grabbyid.comment.forEach(function(disp){%>
-        <div id="container">
-        <div><%=disp.username%></div>
-        <div><%=disp.time.toLocaleString()%></div>
+        <div id="container" class="comment-container border px-2 py-2">
+        <div class="d-flex justify-content-between">
+            <p><strong><%=disp.username%></strong></p>
+            <p class="text-right"><small><%=disp.time.toLocaleString()%></small></p>
+        </div>
+        <!-- <div>
+            <small><%=disp.time.toLocaleString()%></small>
+        </div> -->
         <div><%=disp.cmnt%></div>
     </div>
         
