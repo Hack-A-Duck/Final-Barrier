@@ -140,6 +140,6 @@ const phalana2 = require('./Routes/user_routes/postR')
 // const { allowedNodeEnvironmentFlags } = require('process')
 app.use('/user/post', phalana2)
 
+const PORT = 5000;
 
-
-app.listen(5000, () => { console.log("started at 5000") })
+app.listen(PORT, () => { console.log("started at 5000") })
