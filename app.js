@@ -33,12 +33,12 @@ initializePassport(passport,
 //     console.log('DB connected...')
 // })
 
-const mongoAtlasUri="mongodb+srv://shubham12:1234@cluster0.lurz9.mongodb.net/<dbname>?retryWrites=true&w=majority"
+const mongoAtlasUrl=process.env.DATABASE_URL
 
 try {
     // Connect to the MongoDB cluster
      mongoose.connect(
-      mongoAtlasUri,
+      mongoAtlasUrl,
       { useNewUrlParser: true, useUnifiedTopology: true },
       () => console.log(" Mongoose is connected")
     );
@@ -52,7 +52,6 @@ const app = express();
 //middlewares
 app.use(flash())
 app.use(session({
-    // key: "admin",
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false
@@ -81,7 +80,7 @@ app.set('view engine', 'ejs')
 //home page
 app.get('/', async function(req, res){
     const somearticle= await postmodel.find()
-    console.log(somearticle)
+    // console.log(somearticle)
     res.render('home',{somearticle:somearticle})
 });
 
@@ -140,6 +139,6 @@ const phalana2 = require('./Routes/user_routes/postR')
 // const { allowedNodeEnvironmentFlags } = require('process')
 app.use('/user/post', phalana2)
 
-const PORT = 5000;
+const PORT =process.env.PORT || 5000;
 
-app.listen(PORT, () => { console.log("started at 5000") })
+app.listen(PORT, () => { console.log(`started at ${PORT}`) })
