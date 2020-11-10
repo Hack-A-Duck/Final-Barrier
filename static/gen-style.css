@@ -75,6 +75,16 @@ body {
     border-radius: 1rem;
 }
 
+.postcontainer img{
+    border-radius: 2rem;
+    width: 100%;
+    height: auto;
+}
+
+.post-body {
+    height: 100%;
+}
+
 footer {
     background: var(--purple);
     color: white;

@@ -1,6 +1,9 @@
 <!-- check -->
 <h2>Comment Section</h2>
 <ul>
+    <% if(grabbyid.comment.length<1){ %>
+    <p>Be the first one to comment.</p>
+    <%}%>
     <%grabbyid.comment.forEach(function(disp){%>
         <div id="container">
         <div><%=disp.username%></div>
