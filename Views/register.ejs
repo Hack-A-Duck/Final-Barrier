@@ -12,6 +12,8 @@
 </head>
 
 <body>
+
+    <%- include('partials/navbar')-%>
     <!-- <div id="logincontainer">
         <h2>SIGN UP</h2>
         <form action="/register" method="post">
@@ -33,7 +35,7 @@
         </form>
     </div> -->
 
-    <div class="col-md-6 col-12 mx-auto my-5 py-5 px-5 my-auto" id="logincontainer">
+    <div class="col-md-6 col-12 mx-auto py-5 px-5 my-auto" id="logincontainer">
         <h2 class="flash-message">Create an Account.</h2>
         <p class="error-message">
             <% if (messages.error){ %>
@@ -57,6 +59,8 @@
             <a href="/admin/login" class="btn btn-outline-primary ml-auto">Login</a>
         </form>
     </div>
+
+    <%- include('partials/footer')-%>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

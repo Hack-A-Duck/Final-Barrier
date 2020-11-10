@@ -15,19 +15,22 @@
 
     <%- include('../partials/navbar')-%>
 
-    <div id="container">
-        <h1>All the posts</h1>
+    <div id="container" class="container my-auto">
+
+        <div class="container-fluid header">
+            <h1 class="mt-3 mb-5">Latest Articles</h1>
+        </div>
         <ul>
             <% if(all_post.length<1){ %>
                 <p>Sorry,There aren't any Posts to Display.</p>
                 <%}%>
             <%all_post.forEach(function(post){%>
                <div class="postcontainer">
-                <div><img src="/uploads/<%= post.img %>" alt="loading..." style="height: 100px;width: 100px;"></div>
+                <div><img src="/uploads/<%= post.img %>" alt="loading..."></div>
                 <h3><%=post.title%></h3>
                 <div><%=post.date.toLocaleString()%></div>
                 <div><%=post.snippet%></div>
-                <a href='http://localhost:5000/admin/post/<%=post._id%>'>Read More</a>
+                <a href='http://localhost:5000/user/post/<%=post._id%>'>Read More</a>
                 
             
                </div>

@@ -57,6 +57,11 @@ body {
     background: var(--primary-bg);
 }
 
+.home-hero {
+    max-width: 1000px;
+    height: auto;
+}
+
 .card-title {
     color: var(--purple)
 }
