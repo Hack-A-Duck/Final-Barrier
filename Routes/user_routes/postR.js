@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 
 const postmodel = require('../../Models/postM')
-const commentmodel = require('../../Models/postM')
+// const commentmodel = require('../../Models/postM')
 
 router.get('/', async(req, res) => {
     const all_post = await postmodel.find().sort({date:'desc'})

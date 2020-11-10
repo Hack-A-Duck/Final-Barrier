@@ -14,6 +14,8 @@ const methodoverride=require('method-override')
 const Passmodel = require('./Models/passM')
 const { isNotAuthenticated }=require('./config/auth')
 
+const postmodel = require('./Models/postM')
+
 
 const initializePassport = require('./config/passport')
 initializePassport(passport,
@@ -77,8 +79,10 @@ app.set('Views', path.join(__dirname, 'Views'))
 app.set('view engine', 'ejs')
 
 //home page
-app.get('/', function (req, res) {
-    res.render('home')
+app.get('/', async function(req, res){
+    const somearticle= await postmodel.find()
+    console.log(somearticle)
+    res.render('home',{somearticle:somearticle})
 });
 
 //aboutus page
