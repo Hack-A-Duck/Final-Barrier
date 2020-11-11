@@ -1,6 +1,6 @@
 const LocalStrategy = require('passport-local').Strategy
 const bcrypt = require('bcrypt')
-const Passmodel = require('../Models/passM')
+const Passmodel = require('../models/passM')
 // const mongoose = require('mongoose')
 
 // const Passmodel = require('../Models/passM')
