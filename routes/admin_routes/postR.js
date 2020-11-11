@@ -48,7 +48,7 @@ router.post('/add_post', upload.single('image'), async (req, res) => {
         img: req.file.filename
         // date : req.body.date
     })
-    console.log(newpost)
+    // console.log(newpost)
 
     try {
         const a1 = await newpost.save()
@@ -97,7 +97,7 @@ router.post('/edit/:id', async (req, res) => {
 
     try {
         const updatedpost = await postmodel.updateOne({ _id: (req.params.id) }, a2)
-        res.redirect('/admin/post/')
+        res.redirect(`/admin/post/${req.params.id}`)
 
     } catch (error) {
         console.error(error)
@@ -123,7 +123,7 @@ router.post('/add_comment', async (req, res) => {
         const updatedpost = await addcommentin.comment.push({ username: (req.body.username), cmnt: (req.body.write_comment), time: (req.body.timeofcomment) })
         let z = await addcommentin.save()
 
-        res.redirect('/admin/post/')
+        res.redirect(`/admin/post/${req.body.getid}`)
 
     } catch (error) {
         console.error(error)

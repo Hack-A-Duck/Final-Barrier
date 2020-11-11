@@ -25,7 +25,7 @@ router.post('/add_comment', async(req, res) => {
         const updatedpost=await addcommentin.comment.push({username:(req.body.username),cmnt:(req.body.write_comment),time:(req.body.timeofcomment)})
          let z=await addcommentin.save()
 
-        res.redirect('/user/post/')
+        res.redirect(`/user/post/${req.body.getid}`)
         
     } catch (error) {
         console.error(error)
