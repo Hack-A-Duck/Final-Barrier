@@ -27,12 +27,6 @@ initializePassport(passport,
 
 //mongoose connection
 
-// mongoose.connect('mongodb://localhost:27017/duck', { useNewUrlParser: true , useUnifiedTopology: true })
-// var db = mongoose.connection;
-// db.once('open', () => {
-//     console.log('DB connected...')
-// })
-
 const mongoAtlasUrl=process.env.DATABASE_URL
 
 try {
@@ -64,13 +58,6 @@ app.use(express.static('./static'))
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 app.use(methodoverride('_method'))
-
-
-// Authentication 
-// var auth=function(req,res,next){
-//     if(req.session&&)
-// }
-
 
 
 //setting view engine(templates)
@@ -123,20 +110,19 @@ app.post('/admin/login',isNotAuthenticated, passport.authenticate('local', {
     failureFlash: true
 }))
 
-
+//log out route
 app.delete('/logout', (req, res) => {
     req.logOut()
     res.redirect('/admin/login')
 })
 
 
-//routes post
+//admin routes post
 const phalana = require('./routes/admin_routes/postR')
 app.use('/admin/post', phalana)
 
-
+//user routes post
 const phalana2 = require('./routes/user_routes/postR')
-// const { allowedNodeEnvironmentFlags } = require('process')
 app.use('/user/post', phalana2)
 
 const PORT =process.env.PORT || 5000;
