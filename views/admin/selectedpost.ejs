@@ -18,6 +18,13 @@
 
     <div id="container" class="container my-auto">
 
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb py-1">
+                <li class="breadcrumb-item"><small></small><a href="/user/post">Articles</a></small></li>
+                <li class="breadcrumb-item active" aria-current="page"><small></small><%=grabbyid.title%></small></li>
+            </ol>
+        </nav>
+
         <div class="article-header">
             <h1 class="my-4"><%=grabbyid.title%></h1>
         </div>
@@ -26,9 +33,9 @@
         </div>
 
         <div class="d-flex justify-content-between">
-            <button class="btn btn-primary my-2 w-25" id="btnedit" data=<%=grabbyid._id%>>Edit Post</button>
+            <button class="btn btn-blue my-2 w-25" id="btnedit" data=<%=grabbyid._id%>>Edit Post</button>
             <form action='/admin/post/delete/<%=grabbyid._id%>?_method=DELETE' method="post" class="w-25">
-                <button class="btn btn-primary my-2 w-100" type="submit">Delete Post</button>
+                <button class="btn btn-blue my-2 w-100" type="submit">Delete Post</button>
             </form>
         </div>
 

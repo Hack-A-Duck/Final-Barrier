@@ -58,10 +58,10 @@ body {
     background: var(--primary-bg);
 }
 
-.home-hero {
+/* .home-hero {
     max-width: 1000px;
     height: auto;
-}
+} */
 
 .card-title {
     color: var(--purple)
@@ -77,7 +77,18 @@ body {
 }
 
 .postcontainer img{
-    border-radius: 2rem;
+    border-radius: 1rem;
+    width: 100%;
+    height: auto;
+}
+
+.home-card {
+    width: 100%;
+    border-radius: 1rem;
+}
+
+.home-card img{
+    border-radius: 1rem;
     width: 100%;
     height: auto;
 }
@@ -105,8 +116,22 @@ body {
 }
 
 .btn-green:hover{
-    background: green;
+    background: #28a745;
     color: white;
+}
+
+.btn-blue {
+    background: var(--purple);
+    color: white;
+}
+
+.btn-blue:hover {
+    background: var(--blue);
+    color: white;
+}
+
+.breadcrumb {
+    background: white;
 }
 
 footer {
