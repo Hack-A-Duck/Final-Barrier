@@ -99,6 +99,16 @@ body {
     margin: 10px auto;
 }
 
+.btn-green {
+    background: var(--green);
+    color: white;
+}
+
+.btn-green:hover{
+    background: green;
+    color: white;
+}
+
 footer {
     background: var(--purple);
     color: white;
