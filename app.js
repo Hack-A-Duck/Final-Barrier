@@ -131,11 +131,11 @@ app.delete('/logout', (req, res) => {
 
 
 //routes post
-const phalana = require('./Routes/admin_routes/postR')
+const phalana = require('./routes/admin_routes/postR')
 app.use('/admin/post', phalana)
 
 
-const phalana2 = require('./Routes/user_routes/postR')
+const phalana2 = require('./routes/user_routes/postR')
 // const { allowedNodeEnvironmentFlags } = require('process')
 app.use('/user/post', phalana2)
 
