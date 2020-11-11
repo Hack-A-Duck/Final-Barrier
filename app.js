@@ -74,7 +74,7 @@ app.use(methodoverride('_method'))
 
 
 //setting view engine(templates)
-app.set('Views', path.join(__dirname, 'Views'))
+app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 
 //home page
