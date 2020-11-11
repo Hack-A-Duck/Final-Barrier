@@ -11,10 +11,10 @@ const session = require('express-session')
 const flash = require('express-flash')
 const passport = require('passport')
 const methodoverride=require('method-override')
-const Passmodel = require('./Models/passM')
+const Passmodel = require('./models/passM')
 const { isNotAuthenticated }=require('./config/auth')
 
-const postmodel = require('./Models/postM')
+const postmodel = require('./models/postM')
 
 
 const initializePassport = require('./config/passport')

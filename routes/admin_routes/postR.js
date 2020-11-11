@@ -3,7 +3,7 @@ const router = express.Router()
 const { ensureAuthenticate }=require('../../config/auth')
 const multer=require('multer')
 
-const postmodel = require('../../Models/postM')
+const postmodel = require('../../models/postM')
 const { request } = require('express')
 
 //storege for multer
