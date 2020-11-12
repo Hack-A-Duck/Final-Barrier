@@ -1,40 +1,7 @@
 const LocalStrategy = require('passport-local').Strategy
 const bcrypt = require('bcrypt')
 const Passmodel = require('../models/passM')
-// const mongoose = require('mongoose')
 
-// const Passmodel = require('../Models/passM')
-// // const { model } = require('../Models/passM')
-
-// module.exports = function (passport) {
-
-
-//     passport.use(new LocalStrategy(
-//         function (email, password, done) {
-//             Passmodel.findOne({ username: email }, function (err, user1) {
-//                 if (err) { return done(err); }
-//                 if (!user1) {
-//                     return done(null, false, { message: 'Incorrect username.' });
-//                 }
-//                 if (!user1.validPassword(password)) {
-//                     return done(null, false, { message: 'Incorrect password.' });
-//                 }
-//                 return done(null, user1);
-//             });
-//         }
-//     ));
-
-//     passport.serializeUser(function (user, done) {
-//         done(null, user.id);
-//     });
-
-//     passport.deserializeUser(function (id, done) {
-//         User.findById(id, function (err, user) {
-//             done(err, user);
-//         });
-//     });
-
-// }
 
 
 function initialize(passport, getUserByEmail) {
